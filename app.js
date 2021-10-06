@@ -6,6 +6,9 @@ const lossSpan = document.getElementById('losses');
 const drawSpan = document.getElementById('draw');
 const result = document.getElementById('result');
 const reset = document.getElementById('reset');
+const errorMsg = document.getElementById('error');
+
+errorMsg.classList.add('hide');
 
 reset.addEventListener('click', ()=>{
   window.location.reload();
@@ -15,8 +18,13 @@ let wins = 0;
 let loss = 0;
 let draw = 0;
 
+
+
 play.addEventListener('click', ()=>{
   const selected = document.querySelector('input[type=radio]:checked');
+  if(!selected) {
+    return errorMsg.classList.remove('hide');
+  }
   const userMove = selected.value;
   const compMove = randomMove();
   console.log(compMove);

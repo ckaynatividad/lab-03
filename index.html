@@ -13,30 +13,34 @@
 </head>
 
 <body>
-    <section>
-    <label for="rock">
+    <section id="playsection">
+    <label>
         <input type="radio" name="move" value="rock">
-        <span id="rock" class="move">rock</span>
+            <img src="./assets/rock.png">
     </label>
     
-    <label for="paper">
+    <label>
         <input type="radio" name="move" value="paper">
-        <span id="paper" class="move">paper</span>
+            <img src="./assets/paper.png">
     </label>
 
-    <label for="scissors">
+    <label>
         <input type="radio" name="move" value="scissors">
-        <span id="scissors">scissors</span>
+            <img src="./assets/scissors.png">
     </label>
     </section>
+    <div id="secondHalf">
+    <button id="playBtn">play</button>
+    <p id="error">Please choose a move.</p>
 
-    <button id=playBtn>play</button>
-
-    <p id="result"></p>
+    <p id="result"></p></div>
+    <div id="scores">
     <p>you have won <span id="wins">0</span></p>
     <p>you have lost <span id="losses">0</span></p>
     <p>draw <span id="draw">0</span></p>
     <button id="reset">Reset scores</button>
+        </div>
+
 
     <script type="module" src="./app.js"></script>
 </body>
