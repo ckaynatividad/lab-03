@@ -39,40 +39,20 @@ play.addEventListener('click', ()=>{
     errorMsg.classList.add('hide');
     const userMove = selected.value;
     const compMove = randomMove();
-    // console.log(compMove);
-    if (didUserWin(userMove, compMove)) {
+    console.log(compMove);
+    if (didUserWin(userMove, compMove) === 'draw') {
         draw++;
         drawSpan.textContent = draw;
         result.textContent = 'It was a draw.';
-    } else if (userMove === 'rock') {
-        if (compMove === 'paper') {
-            loss++;
-            lossSpan.textContent = loss;
-            result.textContent = 'Computer wins.';
-        } else {
-            wins++;
-            winsSpan.textContent = wins;
-            result.textContent = 'You win.';
-        }
-    } else if (userMove === 'scissors') {
-        if (compMove === 'rock') {
-            loss++;
-            lossSpan.textContent = loss;
-            result.textContent = 'Computer wins.';
-        } else {
-            wins++;
-            winsSpan.textContent = wins;
-            result.textContent = 'You win.';
-        }
-    } else if (userMove === 'paper') {
-        if (compMove === 'scissors') {
-            loss++;
-            lossSpan.textContent = loss;
-            result.textContent = 'Computer wins.';
-        } else {
-            wins++;
-            winsSpan.textContent = wins;
-            result.textContent = 'You win.';
-        }
+    } else if (didUserWin(userMove, compMove) === 'lose') {
+        loss++;
+        lossSpan.textContent = loss;
+        result.textContent = 'Computer wins.';
+    } else if (didUserWin(userMove, compMove) === 'win') {
+        wins++;
+        winsSpan.textContent = wins;
+        result.textContent = 'You win.';
     }
-});
+
+}
+);
