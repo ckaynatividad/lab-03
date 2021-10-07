@@ -8,11 +8,21 @@ const drawSpan = document.getElementById('draw');
 const result = document.getElementById('result');
 const reset = document.getElementById('reset');
 const errorMsg = document.getElementById('error');
+const resetSpan = document.getElementById('resetScore');
+
+let resetScore = 0;
 
 errorMsg.classList.add('hide');
 
 reset.addEventListener('click', ()=>{
-    window.location.reload();
+    resetScore++;
+    resetSpan.textContent = resetScore;
+    wins = 0;
+    winsSpan.textContent = wins;
+    loss = 0;
+    lossSpan.textContent = loss;
+    draw = 0;
+    drawSpan.textContent = draw;
 });
 
 let wins = 0;
