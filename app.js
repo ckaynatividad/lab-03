@@ -1,4 +1,5 @@
 import { randomMove } from './import.js';
+import { didUserWin } from './import.js';
 
 const play = document.getElementById('playBtn');
 const winsSpan = document.getElementById('wins');
@@ -28,7 +29,8 @@ play.addEventListener('click', ()=>{
     errorMsg.classList.add('hide');
     const userMove = selected.value;
     const compMove = randomMove();
-    if (userMove === compMove) {
+    // console.log(compMove);
+    if (didUserWin(userMove, compMove)) {
         draw++;
         drawSpan.textContent = draw;
         result.textContent = 'It was a draw.';
@@ -64,4 +66,3 @@ play.addEventListener('click', ()=>{
         }
     }
 });
-
